@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket Distributor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Performers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tickets for Sale</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 bg-dark" type="search" placeholder="Search by name"
+                        aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row mb-4"> <!-- Center align the button and add bottom margin -->
+            <div class="col-md-3">
+                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3" id="filterBtn">
+                    <i class="bi bi-funnel"></i> Filter
+                </button>
+            </div>
+        </div>
+    
+        <div class="row mb-4" id="filterOptions" style="display: none;">
+            <div class="col-md-12">
+                <div class="row pl-3">
+                    <div class="col-md-4 border-left ">
+                        <!-- Category Checkboxes -->
+                        <div class="options-section">
+                            <h4 class="text-white">Categories</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="category1">
+                                <label class="form-check-label text-white" for="category1">
+                                    Beach
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="category2">
+                                <label class="form-check-label text-white" for="category2">
+                                    Electronic Music
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="category3">
+                                <label class="form-check-label text-white" for="category3">
+                                    Sunset
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="category4">
+                                <label class="form-check-label text-white" for="category4">
+                                    Comedy
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 border-left">
+                        <!-- Country/City Checkboxes -->
+                        <div class="options-section">
+                            <h4 class="text-white">Countries/Cities</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="country1">
+                                <label class="form-check-label text-white" for="country1">
+                                    Albania
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="country2">
+                                <label class="form-check-label text-white" for="country2">
+                                    Italy
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="city1">
+                                <label class="form-check-label text-white" for="city1">
+                                    Tirana
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="city2">
+                                <label class="form-check-label text-white" for="city2">
+                                    Bari
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 border-left">
+                        <!-- Sort by Price -->
+                        <div class="options-section">
+                            <h4 class="text-white">Sort by Price</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortPrice" id="sortPriceHigh">
+                                <label class="form-check-label text-white" for="sortPriceHigh">
+                                    High to Low
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortPrice" id="sortPriceLow">
+                                <label class="form-check-label text-white" for="sortPriceLow">
+                                    Low to High
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3" id="applyFilterBtn">
+                            Apply Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Home -->
+    <div class="container mt-5">
+        <div class="row" id="eventCards">
+            <div class="col-md-3 mb-4">
+                <!-- Event Card 1 -->
+                <div class="card bg-dark text-white shadow text-center">
+                    <a href="#">
+                        <img src="../images/RaveByTheBeach.jpeg" class="card-img-top" alt="Event 1">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#" class="text-white">Rave by the Beach</a></h5>
+                        <p class="card-text">
+                            <a href="#" class="text-primary">Beach</a>,
+                            <a href="#" class="text-primary">Electronic Music</a>,
+                            <a href="#" class="text-primary">Sunset</a>
+                        </p>
+                        <p class="card-text">Tickets start from: $19</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Event Card 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="card bg-dark text-white shadow text-center">
+                    <a href="">
+                        <img src="../images/NightMarketFestival.jpeg" class="card-img-top" alt="Event 2">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="" class="text-white">Night Market Festival</a></h5>
+                        <p class="card-text">
+                            <a href="#" class="text-primary">Food</a>,
+                            <a href="#" class="text-primary">Music</a>,
+                            <a href="#" class="text-primary">Local Vendors</a>
+                        </p>
+                        <p class="card-text">Tickets start from: $15</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Event Card 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="card bg-dark text-white shadow text-center">
+                    <a href="">
+                        <img src="../images/ArtExpo.jpeg" class="card-img-top" alt="Event 3">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="" class="text-white">Art Expo</a></h5>
+                        <p class="card-text">
+                            <a href="#" class="text-primary">Art</a>,
+                            <a href="#" class="text-primary">Painting</a>,
+                            <a href="#" class="text-primary">Exhibition</a>
+                        </p>
+                        <p class="card-text">Tickets start from: $10</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Event Card 4 -->
+            <div class="col-md-3 mb-4">
+                <div class="card bg-dark text-white shadow text-center">
+                    <a href="">
+                        <img src="../images/ComedyNight.jpeg" class="card-img-top" alt="Event 4">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="" class="text-white">Comedy Night</a></h5>
+                        <p class="card-text">
+                            <a href="#" class="text-primary">Comedy</a>,
+                            <a href="#" class="text-primary">Stand-up</a>,
+                            <a href="#" class="text-primary">Entertainment</a>
+                        </p>
+                        <p class="card-text">Tickets start from: $12</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+<!-- Login / SingUp -->
+<!-- Record page  -->
+<!-- Ticket Information -->
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
