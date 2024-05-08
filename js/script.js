@@ -4,12 +4,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const eventCards = document.getElementById("eventCards");
 
     filterBtn.addEventListener("click", function() {
-        if(filterOptions.style.display === "none"){
+        if (filterOptions.style.display === "none") {
+            filterOptions.style.transition = "all 1s ease";
             filterOptions.style.display = "block";
             eventCards.style.marginTop = "20px";
-        }else{
+        } else {
+            filterOptions.style.transition = "all 1s ease";
             filterOptions.style.display = "none";
             eventCards.style.marginTop = "0";
         }
-    })
-})
+    });
+});
