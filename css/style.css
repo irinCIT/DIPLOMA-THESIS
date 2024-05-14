@@ -1,4 +1,17 @@
-/* #filterOptions {
-    display: none;
-    transition: all 0.3s ease;
-} */
+#horizontalLine{
+    opacity: 20%;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.animated.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+#login-form, #signup-form {
+    transition: opacity 2s;
+}

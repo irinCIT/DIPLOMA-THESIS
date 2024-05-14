@@ -15,3 +15,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.getElementById('signup-link').addEventListener('click', function() {
+    document.getElementById('login-form').style.opacity = '0';
+    setTimeout(function() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('signup-form').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('signup-form').style.opacity = '1';
+        }, 50);
+    }, 2000);
+});
+
+document.getElementById('login-link').addEventListener('click', function() {
+    document.getElementById('signup-form').style.opacity = '0';
+    setTimeout(function() {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('login-form').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('login-form').style.opacity = '1';
+        }, 50);
+    }, 2000);
+});
+
