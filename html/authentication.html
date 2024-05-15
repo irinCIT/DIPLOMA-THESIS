@@ -15,12 +15,12 @@
         <div id="login-form" class="my-4 w-50">
             <form>
                 <div class="form-group">
-                    <input type="email" class="form-control bg-dark text-white" id="email" placeholder="Email">
+                    <input type="email" class="form-control bg-dark text-white" id="Lemail" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control bg-dark text-white" id="password" placeholder="Password">
+                    <input type="password" class="form-control bg-dark text-white" id="Lpassword" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-outline-light btn-block">Submit</button>
+                <button type="submit" class="btn btn-outline-light btn-block" id="loginBtn">Log In</button>
             </form>
             <p class="text-center text-light mt-3">Don't have an account? <a href="#" class="text-primary" id="signup-link">Sign up</a></p>
         </div>
@@ -35,15 +35,18 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-sm-12 col-md-4">
+                    <div class="form-group col-sm-12 col-md-2">
                         <input type="number" class="form-control bg-dark text-white" id="age" placeholder="Age">
                     </div>
-                    <div class="form-group col-sm-12 col-md-8">
+                    <div class="form-group col-sm-12 col-md-4">
                         <select name="Gender" id="gender" class="form-control bg-dark text-white">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="otherGender">Other</option>
                         </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-6">
+                        <input type="tel" class="form-control bg-dark text-white" id="phoneNumber" placeholder="Phone Number">
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,7 +55,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control bg-dark text-white" id="signup-password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-outline-light btn-block">Register</button>
+                <button type="submit" class="btn btn-outline-light btn-block" id="signupBtn">Register</button>
             </form>
             <p class="text-center text-light mt-3">
                 Already have an account? 
@@ -63,7 +66,10 @@
     
     
     
-    <script src="../js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@3.1.9-1/crypto-js.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/authentication.js"></script>
     
     
     
