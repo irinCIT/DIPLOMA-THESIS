@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Event Ticket Distributor</title>
 </head>
+
 <body class="bg-dark">
 
     <div class="container d-flex align-items-center justify-content-center vh-100 flex-column animated fadeIn">
@@ -18,20 +20,24 @@
                     <input type="email" class="form-control bg-dark text-white" id="Lemail" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control bg-dark text-white" id="Lpassword" placeholder="Password">
+                    <input type="password" class="form-control bg-dark text-white" id="Lpassword"
+                        placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-outline-light btn-block" id="loginBtn">Log In</button>
             </form>
-            <p class="text-center text-light mt-3">Don't have an account? <a href="#" class="text-primary" id="signup-link">Sign up</a></p>
+            <p class="text-center text-light mt-3">Don't have an account? <a href="#" class="text-primary"
+                    id="signup-link">Sign up</a></p>
         </div>
         <div id="signup-form" class="my-4 w-50" style="display: none;">
             <form>
                 <div class="form-row">
                     <div class="form-group col-sm-12 col-md-6">
-                        <input type="text" class="form-control bg-dark text-white" id="first-name" placeholder="First Name">
+                        <input type="text" class="form-control bg-dark text-white" id="first-name"
+                            placeholder="First Name">
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
-                        <input type="text" class="form-control bg-dark text-white" id="last-name" placeholder="Last Name">
+                        <input type="text" class="form-control bg-dark text-white" id="last-name"
+                            placeholder="Last Name">
                     </div>
                 </div>
                 <div class="form-row">
@@ -46,32 +52,77 @@
                         </select>
                     </div>
                     <div class="form-group col-sm-12 col-md-6">
-                        <input type="tel" class="form-control bg-dark text-white" id="phoneNumber" placeholder="Phone Number">
+                        <input type="tel" class="form-control bg-dark text-white" id="phoneNumber"
+                            placeholder="Phone Number">
                     </div>
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control bg-dark text-white" id="signup-email" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control bg-dark text-white" id="signup-password" placeholder="Password">
+                    <input type="password" class="form-control bg-dark text-white" id="signup-password"
+                        placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-outline-light btn-block" id="signupBtn">Register</button>
             </form>
             <p class="text-center text-light mt-3">
-                Already have an account? 
+                Already have an account?
                 <a href="#" class="text-primary" id="login-link">Log In</a>
             </p>
         </div>
     </div>
-    
-    
-    
+
+
+    <script>
+        document.getElementById('signup-link').addEventListener('click', function () {
+            document.getElementById('login-form').style.opacity = '0';
+            setTimeout(function () {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('signup-form').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('signup-form').style.opacity = '1';
+                }, 50);
+            }, 2000);
+        });
+
+        document.getElementById('login-link').addEventListener('click', function () {
+            document.getElementById('signup-form').style.opacity = '0';
+            setTimeout(function () {
+                document.getElementById('signup-form').style.display = 'none';
+                document.getElementById('login-form').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('login-form').style.opacity = '1';
+                }, 50);
+            }, 2000);
+        });
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/crypto-js@3.1.9-1/crypto-js.js"></script>
     <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script src="../js/authentication.js"></script>
-    
-    
-    
+    <!-- <script src=""></script> -->
+
+    <!-- <script>
+
+        let name, lname, age, number, email, pass, gender;
+
+        name = document.getElementById("first-name");
+        lname = document.getElementById("last-name");
+        age = document.getElementById("age");
+        gender = document.getElementById("gender");
+        number = document.getElementById("phoneNumber");
+        email = document.getElementById("signup-email");
+        pass = document.getElementById("signup-password");
+
+        const data = {name, lname, age, gender, number, email, pass};
+
+        console.log(JSON.stringify(data));
+    </script> -->
+
+
+
 </body>
+
 </html>
